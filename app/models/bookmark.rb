@@ -3,6 +3,7 @@ class Bookmark < ApplicationRecord
   has_many :bookmark_tags
   has_many :tags, through: :bookmark_tags
   validate :name_or_url
+  accepts_nested_attributes_for :bookmark_tags, allow_destroy: true
 
   private
 

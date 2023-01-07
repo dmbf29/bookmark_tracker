@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_07_062113) do
   create_table "bookmarks", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.boolean "video"
+    t.boolean "video", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
