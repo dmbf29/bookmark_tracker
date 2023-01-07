@@ -51,6 +51,7 @@ gem "sassc-rails"
 gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
+gem 'jwt'
 gem "pundit"
 gem "simple_form", github: "heartcombo/simple_form"
 
