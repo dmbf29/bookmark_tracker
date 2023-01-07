@@ -43,32 +43,32 @@ function getTitle() {
   });
 }
 
-function getResource(title) {
-  const titleLower = title.toLowerCase();
-  return new Promise((resolve, reject) => {
-    try {
-      fetch("http://www.substracked.com/api/v1/resources")
-        .then((response) => response.json())
-        .then((data) => {
-          const preResources = data.filter(
-            (service) => service.user_id === null
-          );
-          console.log(preResources);
-          let resource = preResources.find((service) =>
-            titleLower.includes(service.name.toLowerCase())
-          );
-          if (title.includes("Amazon")) {
-            resource = preResources.find(
-              (service) => service.name === "Amazon Prime"
-            );
-          }
-          resolve(resource);
-        });
-    } catch (e) {
-      reject(e);
-    }
-  });
-}
+// function getResource(title) {
+//   const titleLower = title.toLowerCase();
+//   return new Promise((resolve, reject) => {
+//     try {
+//       fetch("http://www.substracked.com/api/v1/resources")
+//         .then((response) => response.json())
+//         .then((data) => {
+//           const preResources = data.filter(
+//             (service) => service.user_id === null
+//           );
+//           console.log(preResources);
+//           let resource = preResources.find((service) =>
+//             titleLower.includes(service.name.toLowerCase())
+//           );
+//           if (title.includes("Amazon")) {
+//             resource = preResources.find(
+//               (service) => service.name === "Amazon Prime"
+//             );
+//           }
+//           resolve(resource);
+//         });
+//     } catch (e) {
+//       reject(e);
+//     }
+//   });
+// }
 
 // function fetchData(resource) {
 //   const select = document.getElementById("subscription_plan_id");
