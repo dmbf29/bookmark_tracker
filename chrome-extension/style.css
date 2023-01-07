@@ -1,0 +1,118 @@
+:root {
+  --primary: #2F80ED;
+  --dark: #222222;
+}
+
+body {
+  color: var(--dark);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.pop-up-container {
+  min-width: 350px;
+  position: relative;
+  background: #FFFEFE;
+  padding: 1rem;
+}
+
+.pop-up-content {
+  z-index: 50;
+  position: relative;
+}
+
+.pop-up-titel {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+.form-select, .form-control {
+  border: none;
+  font-size: 16px;
+  outline: 0.5px solid #9F9F9F;
+}
+
+.service-select select {
+  width: 466px;
+}
+
+.form-select:hover, .form-control:focus, .form-control:hover {
+  transition: 0.1s;
+  outline: 2px solid #2F80ED;
+}
+
+abbr {
+  text-decoration: none !important;
+  color: #2F80ED;
+}
+
+.btn {
+  text-decoration: underline;
+  padding: .75rem 1rem;
+  border-radius: 0;
+
+  /* &:hover {
+    color: $primary;
+  }
+
+  &-primary {
+    text-decoration: none;
+    color: white !important;
+
+    &:hover {
+      background: darken($primary, 10%) !important;
+    }
+  }
+
+  &-clean {
+    text-decoration: none;
+  } */
+}
+
+.btn:hover {
+  color: #2F80ED;
+}
+
+.circle {
+  border-radius: 50%;
+  position: absolute;
+}
+
+.circle-one {
+  width: 1200px;
+  height: 1200px;
+  z-index: 10;
+  top: -600px;
+  right: -600px;
+  background: #EBF2FD;
+}
+
+.circle-two {
+  width: 900px;
+  height: 900px;
+  z-index: 20;
+  top: -450px;
+  right: -450px;
+  background: #D9E6FB;
+}
+
+.circle-three {
+  width: 600px;
+  height: 600px;
+  z-index: 30;
+  top: -300px;
+  right: -300px;
+  background: #C8DDF9;
+}
+
+.circle-four {
+  width: 300px;
+  height: 300px;
+  z-index: 40;
+  top: -150px;
+  right: -150px;
+  background: #B8D4F9;
+}
