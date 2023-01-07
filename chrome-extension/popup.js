@@ -97,8 +97,10 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
   login();
 });
 
+console.log(chrome.storage);
 chrome.storage.sync.get(["token"], function (result) {
-  // if (result.token) {
-  document.getElementById("showSignIn").style.display = "none";
-  // }
+  console.log(result);
+  if (result.token) {
+    document.getElementById("showSignIn").style.display = "none";
+  }
 });
