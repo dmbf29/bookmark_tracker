@@ -1,3 +1,13 @@
+function showSignIn() {
+  document.getElementById("showSignIn").style.display = "block";
+  document.getElementById("showActions").style.display = "none";
+}
+
+function showActions() {
+  document.getElementById("showActions").style.display = "block";
+  document.getElementById("showSignIn").style.display = "none";
+}
+
 function getUrl() {
   return new Promise((resolve, reject) => {
     try {
@@ -30,7 +40,6 @@ async function addBookmark() {
   const button = document.getElementById("send-data");
   chrome.storage.sync.get(["token"], function (result) {
     const token = result.token;
-    console.log(token);
     button.addEventListener("click", (e) => {
       const base_url = "http://localhost:3000/api/v1/bookmarks";
       const name = document.getElementById("bookmark_name").value;
@@ -57,15 +66,24 @@ async function addBookmark() {
 }
 addBookmark();
 
-const logout = document.getElementById("logout");
-logout.addEventListener("mouseover", (event) => {
+const logoutBtn = document.getElementById("logout");
+logoutBtn.addEventListener("mouseover", (event) => {
   event.target.classList.remove("text-secondary");
   event.target.classList.add("text-dark");
 });
 
-logout.addEventListener("mouseout", (event) => {
+logoutBtn.addEventListener("mouseout", (event) => {
   event.target.classList.remove("text-dark");
   event.target.classList.add("text-secondary");
+});
+
+function logout() {
+  chrome.storage.sync.remove("token");
+  showSignIn();
+}
+
+logoutBtn.addEventListener("click", (event) => {
+  logout();
 });
 
 function login() {
@@ -87,7 +105,7 @@ function login() {
       console.log(data);
       chrome.storage.sync.set(data, function () {
         console.log("Value is set to " + data);
-        document.getElementById("showSignIn").style.display = "none";
+        showActions();
       });
     });
 }
@@ -97,10 +115,11 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
   login();
 });
 
-console.log(chrome.storage);
 chrome.storage.sync.get(["token"], function (result) {
-  console.log(result);
+  console.log(result.token);
   if (result.token) {
-    document.getElementById("showSignIn").style.display = "none";
+    showActions();
+  } else {
+    showSignIn();
   }
 });
