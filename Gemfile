@@ -53,6 +53,7 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem 'jwt'
 gem "pundit"
+gem 'rack-cors'
 gem "simple_form", github: "heartcombo/simple_form"
 
 group :development, :test do

@@ -31,6 +31,18 @@ function getUrl() {
   });
 }
 
+function getTitle() {
+  return new Promise((resolve, reject) => {
+    try {
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        resolve(tabs[0].title);
+      });
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+
 function getResource(title) {
   const titleLower = title.toLowerCase();
   return new Promise((resolve, reject) => {
@@ -89,6 +101,8 @@ function getResource(title) {
 
 // a button to add subs after the user filled the form
 async function addSubs() {
+  let title = await getTitle();
+  document.getElementById("bookmark_name").value = title;
   let url = await getUrl();
   document.getElementById("bookmark_url").value = url;
   const button = document.getElementById("send-data");
