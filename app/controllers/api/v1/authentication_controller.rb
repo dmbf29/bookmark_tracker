@@ -1,7 +1,7 @@
 class Api::V1::AuthenticationController < Api::V1::BaseController
+  skip_before_action :authenticate_request, only: :login
 
   def login
-    skip_authorization
     @user = User.find_by_email(params[:email])
     if @user&.valid_password?(params[:password])
       token = jwt_encode(user_id: @user.id)

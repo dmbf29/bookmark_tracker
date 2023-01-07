@@ -1,7 +1,7 @@
 class BookmarkPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      current_user.bookmarks
+      user.bookmarks
     end
   end
 

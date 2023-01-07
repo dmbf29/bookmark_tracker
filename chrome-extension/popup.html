@@ -7,13 +7,23 @@
   </head>
 
   <body>
+
     <div class="pop-up-container">
       <!-- Decoration Elements -->
       <div class="circle circle-two"></div>
       <div class="circle circle-three"></div>
       <div class="circle circle-four"></div>
-
       <div class="pop-up-content">
+        <div id="showSignIn">
+          <h3>Sign in</h3>
+          <form method="post" class="form-group" id="login-form">
+            <p><input type="text" name="login" value="" placeholder="Email" id="email" class="wide-input form-control"></p>
+            <div class="border"></div>
+            <p><input type="password" name="password" value="" placeholder="Password" id="password" class="wide-input form-control"></p>
+            <div class="border"></div>
+            <p class="submit"><input type="submit" name="commit" value="Log In" id="login" class="btn btn-primary w-100 rounded-0 mx-0"></p>
+          </form>
+        </div>
         <h3 class="pop-up-titel">
           <span style="text-transform: uppercase">Book<span class="text-primary">marks</span></span>
         </h3>
