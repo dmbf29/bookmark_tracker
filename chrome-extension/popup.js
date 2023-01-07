@@ -41,7 +41,9 @@ async function addBookmark() {
   chrome.storage.sync.get(["token"], function (result) {
     const token = result.token;
     button.addEventListener("click", (e) => {
-      const base_url = "http://localhost:3000/api/v1/bookmarks";
+      // const base_url = "http://localhost:3000/api/v1/bookmarks";
+      const base_url =
+        "https://bookmark-tracker.herokuapp.com/api/v1/bookmarks";
       const name = document.getElementById("bookmark_name").value;
       const bookmark_url = document.getElementById("bookmark_url").value;
       const video = document.getElementById("bookmark_video").value;
@@ -105,8 +107,8 @@ function login() {
     },
     body: JSON.stringify({ email: email, password: password }),
   };
-  // fetch("http://www.jobjob.pro/api/v1/auth/login", myInit)
-  fetch("http://localhost:3000/api/v1/auth/login", myInit)
+  // fetch("http://localhost:3000/api/v1/auth/login", myInit)
+  fetch("https://bookmark-tracker.herokuapp.com/api/v1/auth/login", myInit)
     .then((response) => {
       return response.json();
     })
