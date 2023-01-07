@@ -103,10 +103,15 @@ function login() {
     })
     .then((data) => {
       console.log(data);
-      chrome.storage.sync.set(data, function () {
-        console.log("Value is set to " + data);
-        showActions();
-      });
+      if (data.error === "unauthorized") {
+        document.getElementById("login").value = "Log In ⚠️";
+      } else {
+        document.getElementById("login").value = "Log In";
+        chrome.storage.sync.set(data, function () {
+          console.log("Value is set to " + data);
+          showActions();
+        });
+      }
     });
 }
 
