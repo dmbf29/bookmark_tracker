@@ -45,10 +45,12 @@ async function addBookmark() {
       const name = document.getElementById("bookmark_name").value;
       const bookmark_url = document.getElementById("bookmark_url").value;
       const video = document.getElementById("bookmark_video").value;
-      const tagElements = document.querySelectorAll(".bookmark_tag");
+      const tagElements = document
+        .getElementById("bookmark_tag")
+        .value.split(", ");
       const tags = [];
-      tagElements.forEach((element) => {
-        tags.push({ tag_attributes: { name: element.value } });
+      tagElements.forEach((name) => {
+        tags.push({ tag_attributes: { name: name } });
       });
       // const tag = document.getElementById("bookmark_tag").value;
       fetch(base_url, {
