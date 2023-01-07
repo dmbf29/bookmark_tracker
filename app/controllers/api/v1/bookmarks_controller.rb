@@ -10,7 +10,7 @@ class Api::V1::BookmarksController < Api::V1::BaseController
     @bookmark.user = current_user
     authorize @bookmark
     if @bookmark.save
-      render :show, status: :created
+      head :created
     else
       render_error
     end
@@ -19,6 +19,12 @@ class Api::V1::BookmarksController < Api::V1::BaseController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:url, :name, bookmark_tags_attributes: [:tag_attributes => [:name]])
+    params.require(:bookmark).permit(:url, :name, :video, bookmark_tags_attributes: [tag_attributes: [:name]])
   end
 end
+
+
+# params[:bookmark][:tags].each do |tag|
+#   tag = Tag.where(name: tag.downcase).first_or_create
+#   BookmarkTag.create(bookmark: @bookmark, tag: tag)
+# end

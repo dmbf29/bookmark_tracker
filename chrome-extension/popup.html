@@ -30,14 +30,14 @@
         <div id="showActions">
           <form class="simple_form new_bookmark" id="new_bookmark" novalidate="novalidate" accept-charset="UTF-8" method="POST">
             <div class="border-0">
+              <!-- Name -->
               <div class="mb-3 required bookmark_plan">
                 <label class="form-label required" for="bookmark_name">
                   Name
                 </label>
                 <input class="form-control required" name="bookmark[name]" id="bookmark_name" />
               </div>
-              <!-- Start date -->
-              <!-- Renewal date -->
+              <!-- URL -->
               <div class="mb-3 date required bookmark_url">
                 <label class="form-label date required" for="bookmark_url">
                   URL
@@ -47,7 +47,14 @@
         margin-left: 0rem !important;" name="bookmark[url]" id="bookmark_url">
                 </div>
               </div>
-              <!-- Notes -->
+              <!-- Tag -->
+              <div class="mb-3 required bookmark_plan">
+                <label class="form-label required" for="bookmark_name">
+                  Tag
+                </label>
+                <input class="form-control required bookmark_tag" name="bookmark[bookmark_tags_attributes][tag_attributes[name]]" id="bookmark_tag" />
+              </div>
+              <!-- Video -->
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="bookmark_video" name="bookmark[video]">
                 <label class="form-check-label" for="flexCheckDefault">

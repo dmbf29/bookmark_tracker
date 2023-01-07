@@ -1,5 +1,5 @@
 class BookmarkTag < ApplicationRecord
   belongs_to :bookmark
   belongs_to :tag
-  accepts_nested_attributes_for :tag
+  validates :tag, uniqueness: { scope: :bookmark }
 end

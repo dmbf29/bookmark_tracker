@@ -45,6 +45,12 @@ async function addBookmark() {
       const name = document.getElementById("bookmark_name").value;
       const bookmark_url = document.getElementById("bookmark_url").value;
       const video = document.getElementById("bookmark_video").value;
+      const tagElements = document.querySelectorAll(".bookmark_tag");
+      const tags = [];
+      tagElements.forEach((element) => {
+        tags.push({ tag_attributes: { name: element.value } });
+      });
+      // const tag = document.getElementById("bookmark_tag").value;
       fetch(base_url, {
         method: "POST",
         headers: {
@@ -57,6 +63,7 @@ async function addBookmark() {
             name: name,
             url: bookmark_url,
             video: video,
+            bookmark_tags_attributes: tags,
           },
         }),
       });
