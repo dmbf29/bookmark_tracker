@@ -139,3 +139,12 @@ chrome.storage.sync.get(["token"], function (result) {
     showSignIn();
   }
 });
+
+async function addToken() {
+  chrome.storage.sync.get(["token"], function (result) {
+    const token = result.token;
+    const link = document.getElementById("bookmarks-link");
+    link.href = `${link.href}?token=${token}`;
+  });
+}
+addToken();
