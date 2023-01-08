@@ -4,6 +4,7 @@
     <% @bookmarks.each do |bookmark| %>
       <li>
         <%= link_to bookmark.name || '-', bookmark.url, target: '_blank'  %>
+        <%= link_to "x", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       </li>
     <% end %>
   </ul>
