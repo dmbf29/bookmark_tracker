@@ -4,6 +4,11 @@
     <% @bookmarks.each do |bookmark| %>
       <li>
         <%= link_to bookmark.name || '-', bookmark.url, target: '_blank'  %>
+        <div class="card-tags">
+          <% bookmark.tags.each do |tag| %>
+            <span><%= tag.name %></span>
+          <% end %>
+        </div>
         <%= link_to "x", bookmark_path(bookmark, token: params[:token]), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       </li>
     <% end %>
