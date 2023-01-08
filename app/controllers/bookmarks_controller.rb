@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  # skip_before_action :authenticate_user!, only: [:index, :destroy]
 
   def index
     @bookmarks = policy_scope(Bookmark)
@@ -7,7 +7,8 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
     @bookmark.destroy
-    redirect_to bookmarks_path(token: params[:token])
+    redirect_to bookmarks_path(token: params[:token]), status: :see_other
   end
 end
