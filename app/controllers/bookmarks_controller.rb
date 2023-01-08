@@ -4,4 +4,10 @@ class BookmarksController < ApplicationController
   def index
     @bookmarks = policy_scope(Bookmark)
   end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to bookmarks_path(token: params[:token])
+  end
 end
