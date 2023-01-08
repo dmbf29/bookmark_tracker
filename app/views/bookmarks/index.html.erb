@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container mt-5">
   <h1>Bookmarks</h1>
   <ul>
     <% @bookmarks.each do |bookmark| %>
       <li class='d-flex align-items-center'>
-        <%= link_to bookmark.name || '-', bookmark.url, target: '_blank'  %>
+        <%= link_to bookmark.name || '-', bookmark.url, target: '_blank', class: 'link-secondary text-decoration-none'  %>
         <div class="card-tags mx-3">
           <% bookmark.tags.each do |tag| %>
             <span><%= tag.name %></span>

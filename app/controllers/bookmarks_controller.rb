@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:index, :destroy]
 
   def index
-    @bookmarks = policy_scope(Bookmark)
+    @bookmarks = policy_scope(Bookmark).order(:name)
   end
 
   def destroy
