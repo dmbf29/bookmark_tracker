@@ -2,14 +2,16 @@
   <h1>Bookmarks</h1>
   <ul>
     <% @bookmarks.each do |bookmark| %>
-      <li>
+      <li class='d-flex align-items-center'>
         <%= link_to bookmark.name || '-', bookmark.url, target: '_blank'  %>
-        <div class="card-tags">
+        <div class="card-tags mx-3">
           <% bookmark.tags.each do |tag| %>
             <span><%= tag.name %></span>
           <% end %>
         </div>
-        <%= link_to "x", bookmark_path(bookmark, token: params[:token]), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <%= link_to bookmark_path(bookmark, token: params[:token]), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-light" do %>
+          <i class="fa-solid fa-xmark"></i>
+        <% end %>
       </li>
     <% end %>
   </ul>
