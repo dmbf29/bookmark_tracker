@@ -15,11 +15,14 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_request
-    # p header = request.headers['Authorization']
     p header = params[:token]
-    header = header.split(" ").last if header
-    decoded = jwt_decode(header)
-    @current_user = User.find(decoded[:user_id])
+    if header
+      header = header.split(" ").last
+      decoded = jwt_decode(header)
+      @current_user = User.find(decoded[:user_id])
+    else
+      user_not_authorized
+    end
   end
 
   private
